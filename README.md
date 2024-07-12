@@ -42,7 +42,7 @@
 2. **Настройка окружения:**
     - Создайте файл .env в корне проекта и укажите переменные окружения, например:
    ```bash
-   REACT_APP_API_BASE_URL=http://localhost:5000/api
+   VITE_API_BASE_URL=http://localhost:5000/api
 
 3. **Запуск приложения:**
    ```bash
