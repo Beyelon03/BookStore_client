@@ -8,14 +8,17 @@ export interface IUser {
   phoneNumber: string;
   birthDate: Date;
   createdAt: Date;
-  orders: Array<{
-    items: Array<IOrderItem>;
+  orders: {
+    items: IOrderItem[];
     orderDate: Date;
     orderId: string;
     totalAmount: number;
-  }>;
+  }[];
   favorites: string[];
-  cart: Array<{ book: string; quantity: number }>;
+  cart: {
+    book: string;
+    quantity: number;
+  }[];
   comments: string[];
   books: string[];
 }

@@ -1,0 +1,36 @@
+.container {}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo {}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.filter {}
+
+.search-form {}
+
+.search-button {}
+
+.cart {}
+
+.user {
+  padding-left: 15px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}

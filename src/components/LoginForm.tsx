@@ -1,26 +1,34 @@
 import { FC, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../store/store.ts';
+import { login } from '../store/auth/auth.slice.ts';
 
 const LoginForm: FC = () => {
-  const [login, setLogin] = useState('');
-  const [password, setPassword] = useState('');
+  const [loginInput, setLoginInput] = useState('');
+  const [passwordInput, setPasswordInput] = useState('');
+  const dispatch = useDispatch<AppDispatch>();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    dispatch(login(loginInput, passwordInput));
+  };
 
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       <input
-        onChange={(e) => setLogin(e.target.value)}
-        value={login}
         type="text"
-        placeholder="Логин"
+        value={loginInput}
+        onChange={(e) => setLoginInput(e.target.value)}
+        placeholder="Login"
       />
       <input
-        onChange={(e) => setPassword(e.target.value)}
-        value={password}
         type="password"
-        placeholder="Пароль"
+        value={passwordInput}
+        onChange={(e) => setPasswordInput(e.target.value)}
+        placeholder="Password"
       />
-      <button>Логин</button>
-      <button>Регистрация</button>
-    </div>
+      <button type="submit">Login</button>
+    </form>
   );
 };
 

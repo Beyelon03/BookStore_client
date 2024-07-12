@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const API_URL = `${process.env.VITE_API_BASE_URL}/api`;
+export const API_URL = `${import.meta.env.VITE_API_BASE_URL}/api`;
 
 const $api = axios.create({
   withCredentials: true,
@@ -8,7 +8,7 @@ const $api = axios.create({
 });
 
 $api.interceptors.request.use((config) => {
-  config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`;
+  config.headers.Authorization = `Bearer ${localStorage.getItem('accessToken')}`;
   return config;
 });
 
