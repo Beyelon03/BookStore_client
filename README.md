@@ -1,30 +1,53 @@
-# React + TypeScript + Vite
+# BStore_Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Этот проект является клиентской частью приложения BookStore, предоставляющего функционал для управления книжным магазином.
 
-Currently, two official plugins are available:
+## Функционал
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Авторизация и аутентификация:**
+    - Пользователи могут зарегистрироваться, войти в систему и управлять своим профилем.
+    - Администраторы имеют доступ к административной панели.
 
-## Expanding the ESLint configuration
+- **Просмотр товаров:**
+    - Пользователи могут просматривать доступные книги с подробной информацией о каждой книге.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Отзывы:**
+    - Пользователи могут оставлять отзывы и рейтинги книгам.
 
-- Configure the top-level `parserOptions` property like this:
+- **Корзина:**
+    - Возможность добавления товаров в корзину, изменения количества и удаления товаров из корзины.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- **История заказов:**
+    - Пользователи могут просматривать свою историю заказов, включая детали каждого заказа.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- **Редактирование профиля:**
+    - Возможность пользователей обновлять свои данные, такие как адрес доставки, контактная информация и прочее.
+
+## Технологии
+
+- **Frontend:**
+    - React.js
+    - Redux Toolkit для управления состоянием
+    - React Router для навигации
+    - Axios для взаимодействия с API
+    - SCSS для стилей
+
+## Установка и запуск
+
+1. **Клонирование репозитория:**
+   ```bash
+   git clone https://github.com/your/repository.git
+   cd BStore_Client
+
+2. **Настройка окружения:**
+    - Создайте файл .env в корне проекта и укажите переменные окружения, например:
+   ```bash
+   REACT_APP_API_BASE_URL=http://localhost:5000/api
+
+3. **Запуск приложения:**
+   ```bash
+    npm start
+
+## Дополнительная информация
+Для полноценной работы приложения требуется наличие бэкенд части, написанной на Node.js с использованием Express.js и MongoDB (или другой базы данных).
+
