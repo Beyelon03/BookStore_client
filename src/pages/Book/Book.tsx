@@ -34,28 +34,30 @@ export const Book: FC = () => {
 
   return (
     <div className={styles.container}>
-      <img src={book.coverImage} alt={book.title} className={styles.coverImage} />
-      <div className={styles.details}>
-        <h1 className={styles.title}>{book.title}</h1>
-        <p className={styles.author}>Автор: {book.author.join(', ')}</p>
-        <p className={styles.description}>{book.description}</p>
-        <div className={styles.info}>
-          <div className={styles.infoItem}>ISBN: {book.isbn}</div>
-          <div className={styles.infoItem}>
-            Дата публикации: {new Date(book.publicationDate).toLocaleDateString()}
+      <div className={styles.imageAndDetails}>
+        <img src={book.coverImage} alt={book.title} className={styles.coverImage} />
+        <div className={styles.details}>
+          <h1 className={styles.title}>{book.title}</h1>
+          <p className={styles.author}>Автор: {book.author.join(', ')}</p>
+          <p className={styles.description}>{book.description}</p>
+          <div className={styles.info}>
+            <div className={styles.infoItem}>ISBN: {book.isbn}</div>
+            <div className={styles.infoItem}>
+              Дата публикации: {new Date(book.publicationDate).toLocaleDateString()}
+            </div>
+            <div className={styles.infoItem}>Издатель: {book.publisher.join(', ')}</div>
+            <div className={styles.infoItem}>Язык: {book.language}</div>
+            <div className={styles.infoItem}>Формат: {book.format}</div>
+            <div className={styles.infoItem}>Количество страниц: {book.pageCount}</div>
+            <div className={styles.infoItem}>Тип: {book.type}</div>
+            <div className={styles.infoItem}>Возрастной рейтинг: {book.ageRating}</div>
+            <div className={styles.infoItem}>Средний рейтинг: {book.averageRating}</div>
+            <div className={styles.infoItem}>В наличии: {book.stock}</div>
+            <div className={styles.infoItem}>Продавец: {book.seller.join(', ')}</div>
+            <div className={styles.infoItem}>Рейтинг: {book.rating}</div>
           </div>
-          <div className={styles.infoItem}>Издатель: {book.publisher.join(', ')}</div>
-          <div className={styles.infoItem}>Язык: {book.language}</div>
-          <div className={styles.infoItem}>Формат: {book.format}</div>
-          <div className={styles.infoItem}>Количество страниц: {book.pageCount}</div>
-          <div className={styles.infoItem}>Тип: {book.type}</div>
-          <div className={styles.infoItem}>Возрастной рейтинг: {book.ageRating}</div>
-          <div className={styles.infoItem}>Средний рейтинг: {book.averageRating}</div>
-          <div className={styles.infoItem}>В наличии: {book.stock}</div>
-          <div className={styles.infoItem}>Продавец: {book.seller.join(', ')}</div>
-          <div className={styles.infoItem}>Рейтинг: {book.rating}</div>
+          <p className={styles.price}>Цена: {book.price} грн</p>
         </div>
-        <p className={styles.price}>Цена: {book.price} грн</p>
       </div>
     </div>
   );
