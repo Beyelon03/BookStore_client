@@ -14,21 +14,23 @@ const LoginForm: FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={loginInput}
-        onChange={(e) => setLoginInput(e.target.value)}
-        placeholder="Login"
-      />
-      <input
-        type="password"
-        value={passwordInput}
-        onChange={(e) => setPasswordInput(e.target.value)}
-        placeholder="Password"
-      />
-      <button type="submit">Login</button>
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={loginInput}
+          onChange={(e) => setLoginInput(e.target.value)}
+          placeholder="Login"
+        />
+        <input
+          type="password"
+          value={passwordInput}
+          onChange={(e) => setPasswordInput(e.target.value)}
+          placeholder="Password"
+        />
+        <button type="submit">Login</button>
+      </form>
+    </>
   );
 };
 
