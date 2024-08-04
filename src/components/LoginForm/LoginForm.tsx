@@ -7,8 +7,8 @@ import { Link, Navigate } from 'react-router-dom';
 const LoginForm: FC = () => {
   const dispatch: AppDispatch = useDispatch();
   const isAuth = useSelector(selectAuth);
-  const isLoading = useSelector(selectLoading);
   const error = useSelector(selectError);
+  const isLoading = useSelector(selectLoading);
 
   const [loginInput, setLoginInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
@@ -18,7 +18,7 @@ const LoginForm: FC = () => {
   };
 
   if (isLoading) {
-    return <p>Загрузка...</p>;
+    return <div>Загрузка...</div>;
   }
 
   if (isAuth) {

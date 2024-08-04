@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../store/auth/auth.slice.ts';
 import { useEffect, useState } from 'react';
+import { BookItemLoader } from '../BookItemLoader/BookItemLoader.tsx';
 
 interface CartItem {
   book: string;
@@ -22,7 +23,7 @@ export const Cart = () => {
   }, [user]);
 
   if (isLoading) {
-    return 'Загрузка...';
+    return <BookItemLoader />;
   }
 
   return (

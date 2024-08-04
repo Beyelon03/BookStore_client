@@ -1,4 +1,4 @@
-import $api from '../http';
+import $api, { API_URL } from '../http';
 import { AuthResponse } from '../models/response/AuthResponse.ts';
 import { AxiosResponse } from 'axios';
 
@@ -31,7 +31,9 @@ export default class AuthService {
   }
 
   static async getRefresh(): Promise<AxiosResponse<AuthResponse>> {
-    const response = await $api.get<AuthResponse>('/auth/refresh');
+    const response = await $api.get<AuthResponse>(`${API_URL}/auth/refresh`, {
+      withCredentials: true,
+    });
     return response;
   }
 }
