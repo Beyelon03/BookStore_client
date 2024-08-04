@@ -9,7 +9,7 @@ export default class BookService {
   }
 
   static async fetchBook(bookId: string) {
-    const response = await $api.get<IBook>(`/books${bookId}`);
+    const response = await $api.get<IBook>(`/books/${bookId}`);
     return response;
   }
 }

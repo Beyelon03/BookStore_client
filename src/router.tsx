@@ -6,6 +6,7 @@ import LoginForm from './components/LoginForm/LoginForm.tsx';
 import { Profile } from './components/Profile/Profile.tsx';
 import { Cart } from './components/Cart/Cart.tsx';
 import RegistrationForm from './components/RegistrationForm/RegistrationForm.tsx';
+import { Book } from './pages/Book/Book.tsx';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,7 @@ const router = createBrowserRouter([
         path: 'cart',
         element: <Cart />,
       },
+      { path: 'books/:id', element: <Book /> },
     ],
   },
 ]);

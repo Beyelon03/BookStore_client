@@ -1,12 +1,19 @@
 import { FC } from 'react';
 import { IBook } from '../../models/IBook.ts';
 import styles from './BookItem.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 interface BookItemProps {
   book: IBook;
 }
 
 export const BookItem: FC<BookItemProps> = ({ book }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/books/${book._id}`);
+  };
+
   const truncateTitle = (title: string, maxLength: number) => {
     if (title.length > maxLength) {
       return `${title.slice(0, maxLength)}...`;
@@ -17,7 +24,12 @@ export const BookItem: FC<BookItemProps> = ({ book }) => {
   return (
     <div className={styles.bookItemContainer}>
       {book ? (
-        <div className={styles.bookItem} key={book._id}>
+        <div
+          className={styles.bookItem}
+          key={book._id}
+          onClick={handleClick}
+          style={{ cursor: 'pointer' }}
+        >
           <div className={styles.coverImageWrapper}>
             <img className={styles.coverImage} src={book.coverImage} alt="Cover image" />
           </div>

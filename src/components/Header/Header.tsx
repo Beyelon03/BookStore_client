@@ -1,7 +1,7 @@
 import styles from './Header.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '../../store/store';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FaBook, FaListUl } from 'react-icons/fa';
 import { CiSearch } from 'react-icons/ci';
 import { IoCartOutline } from 'react-icons/io5';
@@ -50,13 +50,11 @@ export const Header = () => {
           </div>
 
           <div className={styles.profile}>
-            {isAuth ? (
+            {isAuth && (
               <Link to="/cart" className={styles.cart}>
                 <IoCartOutline />
                 Корзина
               </Link>
-            ) : (
-              <Navigate to="/" />
             )}
 
             {isAuth ? (

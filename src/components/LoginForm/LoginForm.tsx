@@ -26,31 +26,35 @@ const LoginForm: FC = () => {
   }
 
   return (
-    <div>
-      <label htmlFor="username">
-        Имя пользователя или электронная почта:
-        <input
-          id="username"
-          type="text"
-          value={loginInput}
-          onChange={(e) => setLoginInput(e.target.value)}
-          placeholder="Login"
-        />
-      </label>
-      <label htmlFor="password">
-        Пароль:
-        <input
-          id="password"
-          type="password"
-          value={passwordInput}
-          onChange={(e) => setPasswordInput(e.target.value)}
-          placeholder="Password"
-        />
-      </label>
-      <button onClick={handleLogin}>Логин</button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <Link to="/registration">Регистрация</Link>
-    </div>
+    <>
+      {!isAuth && (
+        <div>
+          <label htmlFor="username">
+            Имя пользователя или электронная почта:
+            <input
+              id="username"
+              type="text"
+              value={loginInput}
+              onChange={(e) => setLoginInput(e.target.value)}
+              placeholder="Login"
+            />
+          </label>
+          <label htmlFor="password">
+            Пароль:
+            <input
+              id="password"
+              type="password"
+              value={passwordInput}
+              onChange={(e) => setPasswordInput(e.target.value)}
+              placeholder="Password"
+            />
+          </label>
+          <button onClick={handleLogin}>Логин</button>
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+          <Link to="/registration">Регистрация</Link>
+        </div>
+      )}
+    </>
   );
 };
 

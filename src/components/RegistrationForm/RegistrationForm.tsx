@@ -23,45 +23,49 @@ const RegistrationForm: FC = () => {
   }
 
   if (isAuth) {
-    return <Navigate to="/" />;
+    return <Navigate to="/" replace />;
   }
 
   return (
-    <div>
-      <label htmlFor="username">
-        Имя пользователя:
-        <input
-          id="username"
-          type="text"
-          value={loginInput}
-          onChange={(e) => setLoginInput(e.target.value)}
-          placeholder="Username"
-        />
-      </label>
-      <label htmlFor="email">
-        Электронная почта:
-        <input
-          id="email"
-          type="email"
-          value={emailInput}
-          onChange={(e) => setEmailInput(e.target.value)}
-          placeholder="username@example.com"
-        />
-      </label>
-      <label htmlFor="password">
-        Пароль:
-        <input
-          id="password"
-          type="password"
-          value={passwordInput}
-          onChange={(e) => setPasswordInput(e.target.value)}
-          placeholder="password"
-        />
-      </label>
-      <button onClick={handleRegistration}>Регистрация</button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <Link to="/login">Войти</Link>
-    </div>
+    <>
+      {!isAuth && (
+        <div>
+          <label htmlFor="username">
+            Имя пользователя:
+            <input
+              id="username"
+              type="text"
+              value={loginInput}
+              onChange={(e) => setLoginInput(e.target.value)}
+              placeholder="Username"
+            />
+          </label>
+          <label htmlFor="email">
+            Электронная почта:
+            <input
+              id="email"
+              type="email"
+              value={emailInput}
+              onChange={(e) => setEmailInput(e.target.value)}
+              placeholder="username@example.com"
+            />
+          </label>
+          <label htmlFor="password">
+            Пароль:
+            <input
+              id="password"
+              type="password"
+              value={passwordInput}
+              onChange={(e) => setPasswordInput(e.target.value)}
+              placeholder="password"
+            />
+          </label>
+          <button onClick={handleRegistration}>Регистрация</button>
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+          <Link to="/login">Войти</Link>
+        </div>
+      )}
+    </>
   );
 };
 
