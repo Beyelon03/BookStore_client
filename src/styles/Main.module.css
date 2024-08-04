@@ -1,10 +1,18 @@
+:root {
+  --main-bg-color: rgb(237, 237, 237);
+  --main-text-color: rgb(98, 107, 119);
+  --bg-btn-color: rgb(223, 223, 223);
+}
+
 body {
   padding: 0;
   margin: 0;
+  background-color: var(--main-bg-color);
 }
 
 * {
   font-family: "JetBrains Mono", sans-serif;
+  box-sizing: border-box;
 }
 
 /*# sourceMappingURL=Main.module.css.map */

@@ -1,23 +1,20 @@
 import { FC } from 'react';
 import { IBook } from '../../models/IBook.ts';
-import styles from './BookItem.module.scss';
+import styles from './BookList.module.scss';
+import { BookItem } from '../BookItem/BookItem.tsx';
+import { BookItemLoader } from '../BookItemLoader/BookItemLoader.tsx';
 
-interface BookItemProps {
+interface BookListProps {
   books: IBook[];
+  isLoading: boolean;
 }
 
-export const BookItem: FC<BookItemProps> = ({ books }) => {
+export const BookList: FC<BookListProps> = ({ books, isLoading }) => {
   return (
-    <div className={styles.cardBookContainer}>
-      {books.length > 0 &&
-        books.map((book) => (
-          <div className={styles.cardBook} key={book._id}>
-            <h2>Title:{book.title}</h2>
-            <p>Author:{book.author[0]}</p>
-            <p>Price:{book.price}</p>
-            <p>In Stock: {book.stock}</p>
-          </div>
-        ))}
+    <div className={styles.bookListContainer}>
+      {isLoading
+        ? Array.from({ length: 10 }).map((_, index) => <BookItemLoader key={index} />)
+        : books.map((book) => <BookItem key={book._id} book={book} />)}
     </div>
   );
 };

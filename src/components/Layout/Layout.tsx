@@ -1,11 +1,11 @@
-import { Header } from './Header/Header.tsx';
+import { FC, useEffect } from 'react';
+import { Header } from '../Header/Header.tsx';
 import { Outlet } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { checkAuth } from '../store/auth/auth.slice.ts';
-import { AppDispatch } from '../store/store.ts';
+import { checkAuth } from '../../store/auth/auth.slice.ts';
+import { AppDispatch } from '../../store/store.ts';
 
-export const Layout = () => {
+export const Layout: FC = () => {
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {

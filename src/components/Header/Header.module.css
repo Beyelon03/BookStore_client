@@ -1,3 +1,12 @@
+header {
+  min-height: 62px;
+}
+
+.container {
+  padding: 12px;
+  margin: 0 90px;
+}
+
 .content {
   display: flex;
   flex-direction: row;
@@ -5,11 +14,80 @@
   align-items: center;
 }
 
+.logo {
+  color: lightslategray;
+  font-size: 32px;
+  font-weight: 500;
+  text-align: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
 .search {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  gap: 10px;
+}
+
+.categoryBtn {
+  font-weight: bold;
+  font-size: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  padding: 12px;
+  height: 44px;
+  cursor: pointer;
+  margin: 0;
+  color: var(--main-text-color);
+  background-color: var(--bg-btn-color);
+  border: none;
+  border-radius: 20px;
+}
+
+.searchForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 10px;
+  pointer-events: none;
+}
+
+.searchInput {
+  padding-left: 30px;
+  padding-right: 70px;
+  height: 44px;
+  border-radius: 20px 0 0 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  min-width: 700px;
+  font-size: 18px;
+}
+
+.searchButton {
+  height: 44px;
+  border: 1px solid #ccc;
+  border-left: none;
+  background: var(--bg-btn-color);
+  color: var(--main-text-color);
+  padding: 10px 15px;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
 }
 
 .user {
@@ -21,6 +99,15 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+}
+
+.logoutBtn {
+  background: none;
+  border: none;
+  color: var(--main-text-color);
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0 15px;
 }
 
 /*# sourceMappingURL=Header.module.css.map */

@@ -3,21 +3,34 @@ import { IBook } from '../../models/IBook.ts';
 import styles from './BookItem.module.scss';
 
 interface BookItemProps {
-  books: IBook[];
+  book: IBook;
 }
 
-export const BookItem: FC<BookItemProps> = ({ books }) => {
+export const BookItem: FC<BookItemProps> = ({ book }) => {
+  const truncateTitle = (title: string, maxLength: number) => {
+    if (title.length > maxLength) {
+      return `${title.slice(0, maxLength)}...`;
+    }
+    return title;
+  };
+
   return (
-    <div className={styles.cardBookContainer}>
-      {books.length > 0 &&
-        books.map((book) => (
-          <div className={styles.cardBook} key={book._id}>
-            <h2>Title:{book.title}</h2>
-            <p>Author:{book.author[0]}</p>
-            <p>Price:{book.price}</p>
-            <p>In Stock: {book.stock}</p>
+    <div className={styles.bookItemContainer}>
+      {book ? (
+        <div className={styles.bookItem} key={book._id}>
+          <div className={styles.coverImageWrapper}>
+            <img className={styles.coverImage} src={book.coverImage} alt="Cover image" />
           </div>
-        ))}
+          <h2 className={styles.title}>{truncateTitle(book.title, 20)}</h2>
+          <p className={styles.author}>{book.author[0]}</p>
+          <p className={styles.price}>{book.price} грн</p>
+          <p className={`${styles.stock} ${book.stock > 0 ? styles.inStock : styles.outOfStock}`}>
+            {book.stock > 0 ? 'В наличии' : 'Нет в наличии'}
+          </p>
+        </div>
+      ) : (
+        <div>Нет доступных книг</div>
+      )}
     </div>
   );
 };
