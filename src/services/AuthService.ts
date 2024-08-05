@@ -31,9 +31,7 @@ export default class AuthService {
   }
 
   static async getRefresh(): Promise<AxiosResponse<AuthResponse>> {
-    const response = await $api.get<AuthResponse>(`${API_URL}/auth/refresh`, {
-      withCredentials: true,
-    });
+    const response = await $api.get<AuthResponse>(`${API_URL}/auth/refresh`);
     return response;
   }
 }

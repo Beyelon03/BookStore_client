@@ -10,8 +10,8 @@ const LoginForm: FC = () => {
   const error = useSelector(selectError);
   const isLoading = useSelector(selectLoading);
 
-  const [loginInput, setLoginInput] = useState('');
-  const [passwordInput, setPasswordInput] = useState('');
+  const [loginInput, setLoginInput] = useState('User');
+  const [passwordInput, setPasswordInput] = useState('password123');
 
   const handleLogin = () => {
     dispatch(login(loginInput, passwordInput));

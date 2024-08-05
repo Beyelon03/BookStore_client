@@ -1,5 +1,5 @@
 import axios from 'axios';
-import AuthService from '../services/AuthService.ts';
+import { AuthResponse } from '../models/response/AuthResponse.ts';
 
 export const API_URL = `${import.meta.env.VITE_API_BASE_URL}/api`;
 
@@ -22,7 +22,9 @@ $api.interceptors.response.use(
     if (error.response.status === 401 && error.config && !error.config._isRetry) {
       originalRequest._isRetry = true;
       try {
-        const response = await AuthService.getRefresh();
+        const response = await axios.get<AuthResponse>(`${API_URL}/auth/refresh`, {
+          withCredentials: true,
+        });
         localStorage.setItem('token', response.data.accessToken);
         return $api.request(originalRequest);
       } catch (e) {
